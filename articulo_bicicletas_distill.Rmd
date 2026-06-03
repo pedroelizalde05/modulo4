@@ -1,0 +1,203 @@
+---
+title: "Análisis Integrado de Vulnerabilidades en la Industria Global de la Bicicleta"
+description: |
+  Dinámicas geopolíticas, crisis de insumos elastoméricos (caucho natural) y
+  perspectivas para la República Argentina y una primera aproximación cualitativa a Mendoza (2025/2026). Trabajo
+  inspirado en la metodología de la cátedra de Técnicas y Herramientas Modernas.
+author:
+  - name: "Allamand, Francisco"
+    url: https://fing.uncuyo.edu.ar
+    affiliation: "Facultad de Ingeniería – Universidad Nacional de Cuyo"
+    affiliation_url: https://fing.uncuyo.edu.ar
+    orcid_id: 0000-0000-0000-0000
+  - name: "Notti Echave, Mateo"
+    url: https://fing.uncuyo.edu.ar
+    affiliation: "Facultad de Ingeniería – Universidad Nacional de Cuyo"
+    affiliation_url: https://fing.uncuyo.edu.ar
+    orcid_id: 0000-0000-0000-0000
+  - name: "Dip, Facundo"
+    url: https://fing.uncuyo.edu.ar
+    affiliation: "Facultad de Ingeniería – Universidad Nacional de Cuyo"
+    affiliation_url: https://fing.uncuyo.edu.ar
+    orcid_id: 0000-0000-0000-0000
+  - name: "Elizalde, Pedro"
+    url: https://fing.uncuyo.edu.ar
+    affiliation: "Facultad de Ingeniería – Universidad Nacional de Cuyo"
+    affiliation_url: https://fing.uncuyo.edu.ar
+    orcid_id: 0000-0000-0000-0000
+date: "`r Sys.Date()`"
+bibliography: referencias.bib
+csl: apa.csl
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    code_folding: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE,
+                      fig.width = 7, fig.height = 4.2, dpi = 150)
+
+# Paquetes necesarios. Si falta alguno, en la consola de Posit/RStudio:
+#   install.packages(c("distill", "ggplot2", "jsonlite", "knitr", "dplyr"))
+library(ggplot2)
+library(jsonlite)
+library(knitr)
+library(dplyr)
+
+# === El JSON alimenta las figuras y tablas (workflow de la cátedra) ===
+bd <- fromJSON("bicicletas.json", simplifyDataFrame = TRUE)
+raiz <- bd$investigacion_industria_bicicleta
+viz  <- raiz$datos_para_visualizacion
+
+# Paleta simple
+col_acento  <- "#2C6E91"
+col_alerta  <- "#C0392B"
+```
+
+## Resumen {.appendix-hidden}
+
+Este informe analiza las vulnerabilidades estructurales de la industria global de
+la bicicleta —rubro modelado en la simulación de eventos discretos del Módulo 3—
+articulando tres planos: la dinámica del mercado mundial, las barreras comerciales
+y logísticas, y la dependencia de un insumo agrícola estratégico, el caucho natural.
+El análisis se complementa con la situación de la República Argentina y el potencial
+de la provincia de Mendoza. Los resultados muestran un sector en crecimiento
+sostenido pero altamente expuesto a riesgos sistémicos.
+
+# Introducción
+
+El diseño de sistemas industriales modernos exige comprender no solo la dinámica
+interna de una planta —como la modelada en SIMUL8 para una fábrica de bicicletas—
+sino también el contexto global que condiciona la disponibilidad y el costo de los
+insumos. La bicicleta, lejos de ser un producto simple, integra una cadena de valor
+internacional intensiva en componentes (cuadros de aluminio, transmisiones, baterías
+para e-bikes y cubiertas de caucho) cuya logística atraviesa los principales puntos
+críticos del comercio marítimo mundial.
+
+El mercado global de la bicicleta se valuó en torno a los USD 81,8 mil millones en 2025, con estimaciones que oscilan entre USD 71 y 127 mil millones según la consultora, y un volumen aproximado de 108 millones de unidades anuales
+[@gmi2026; @emr2025]. Asia-Pacífico lidera la producción y el consumo [@gvr2025].
+
+# Dimensión Global
+
+## Estructura del mercado y del comercio internacional
+
+La producción mundial está fuertemente concentrada: según el reporte de IndexBox específico de bicicletas, China explica alrededor del 61 % del volumen producido, superando al segundo productor —Brasil— por un orden de magnitud, mientras Indonesia aporta cerca del 4,7 % [@indexbox2026]. En valor,
+China, Taiwán y los Países Bajos concentran la mitad de las exportaciones mundiales,
+y Estados Unidos, Alemania y los Países Bajos cerca de un tercio de las
+importaciones [@indexbox2026].
+
+```{r fig-produccion, fig.cap="Cuota estimada de producción mundial de bicicletas por país (2025). Fuente: elaboración propia sobre datos de IndexBox (2026)."}
+df1 <- viz$figura_1_produccion_global_por_pais$datos
+df1 <- df1[order(-df1$cuota_porcentaje), ]
+df1$pais <- factor(df1$pais, levels = df1$pais)
+
+ggplot(df1, aes(x = pais, y = cuota_porcentaje)) +
+  geom_col(fill = col_acento) +
+  geom_text(aes(label = paste0(cuota_porcentaje, "%")), vjust = -0.4, size = 3.5) +
+  labs(x = NULL, y = "Cuota de producción (%)") +
+  ylim(0, 60) +
+  theme_minimal(base_size = 12)
+```
+
+## Barreras comerciales y disrupciones logísticas
+
+El comercio de bicicletas está atravesado por tensiones geopolíticas. La Comisión
+Europea extendió en enero de 2025, por cinco años adicionales, los derechos
+antidumping (9,9 %–70,1 %) y compensatorios (3,9 %–17,2 %) sobre las e-bikes chinas,
+protegiendo unos 12.000 empleos directos en la Unión [@eu2025]. Estados Unidos, por
+su parte, aplica un arancel del 25 % a las e-bikes y partes de origen chino.
+
+A la barrera arancelaria se suma la **fragilidad de los corredores marítimos**.
+Cerca del 30 % del comercio mundial de contenedores transitaba normalmente por el
+Canal de Suez; los ataques en el estrecho de Bab al-Mandab (Mar Rojo) desde fines de
+2023 provocaron una caída del 90 % del tráfico de contenedores por Suez en 2024 y
+obligaron a desviar buques por el Cabo de Buena Esperanza, sumando 10 a 15 días de
+tránsito [@unctad2024]. Los fletes spot Asia-Europa llegaron a quintuplicarse,
+con picos de USD 8.000 a 10.000 por contenedor [@jpmorgan2024]. La tensión recurrente
+en el estrecho de Ormuz refuerza este riesgo por la vía del precio del crudo.
+
+```{r fig-fletes, fig.cap="Evolución del flete spot Asia–Europa por contenedor (USD/FEU). Serie estilizada a partir de los hitos reportados por UNCTAD (2024) y J.P. Morgan (2024): base de fines de 2023, pico de 2024 y normalización posterior."}
+df2 <- viz$figura_2_fletes_maritimos$datos
+df2$periodo <- factor(df2$periodo, levels = df2$periodo)
+
+ggplot(df2, aes(x = periodo, y = usd_feu, group = 1)) +
+  geom_line(color = col_alerta, linewidth = 1.1) +
+  geom_point(color = col_alerta, size = 2.5) +
+  labs(x = NULL, y = "USD por contenedor (FEU)") +
+  theme_minimal(base_size = 12)
+```
+
+```{r tabla-barreras}
+tab2 <- viz$tabla_2_barreras_comerciales$filas
+kable(tab2, col.names = c("Barrera / disrupción", "Valor"),
+      caption = viz$tabla_2_barreras_comerciales$titulo)
+```
+
+## Crisis fitosanitaria del caucho natural
+
+Las cubiertas y cámaras de bicicleta dependen del caucho natural extraído de
+*Hevea brasiliensis*. La oferta mundial registró en 2025 su quinto año consecutivo
+de déficit, con un faltante anual estimado de 600.000 a 800.000 toneladas que podría
+extenderse hasta 2028, mientras los precios tocaron máximos de 13 años a fines de
+2024 [@tang2025]. La producción de Tailandia, principal productor, cayó hasta un
+10 % en 2024 por factores climáticos y la enfermedad de caída de hojas
+[@everstream2024].
+
+A este cuadro coyuntural se suma un riesgo estructural mayor: la producción se apoya
+en monocultivos clonales genéticamente homogéneos en el sudeste asiático, altamente
+vulnerables a una eventual introducción del *Microcyclus ulei*, hongo causante del
+Mal Sudamericano de las Hojas (SALB). Un brote de esta magnitud comprometería de
+forma directa el costo y la disponibilidad de cubiertas, un insumo crítico del
+producto terminado.
+
+# Dimensión Local: República Argentina
+
+El mercado argentino se abastece mayoritariamente con bicicletas ensambladas en el país: solo el 10 % de las unidades comercializadas son importadas. Sin embargo, esa producción local descansa en gran medida sobre componentes importados —en la gama baja, el contenido de partes nacionales ronda apenas el 30 %—, lo que distingue un alto ensamblado nacional de un bajo contenido nacional de componentes [@interbike2025].
+
+```{r fig-precios, fig.cap="Precio de una Mountain Bike rodado 29 por país, en pesos argentinos (2024). Fuente: elaboración propia sobre Ámbito (2024)."}
+df3 <- viz$figura_3_precio_mtb_comparado$datos
+df3 <- df3[order(-df3$precio_ars), ]
+df3$pais <- factor(df3$pais, levels = df3$pais)
+
+ggplot(df3, aes(x = pais, y = precio_ars)) +
+  geom_col(fill = col_acento) +
+  geom_text(aes(label = scales::comma(precio_ars, big.mark = ".")),
+            vjust = -0.4, size = 3.3) +
+  labs(x = NULL, y = "Precio (ARS)") +
+  scale_y_continuous(labels = function(x) format(x, big.mark = ".", scientific = FALSE)) +
+  theme_minimal(base_size = 12)
+```
+
+En septiembre de 2024, mediante la Resolución 274/2024 de la Secretaría de Industria y Comercio, el Gobierno derogó los reglamentos técnicos de seguridad y calidad de bicicletas, cámaras y cubiertas, eliminando la certificación obligatoria para favorecer la importación y la competencia [@boletin2024]. La medida abre una tensión: facilita la importación pero no necesariamente asegura una baja inmediata de precios en un mercado retraído, con ventas que cayeron cerca del 30 % respecto de 2023 [@interbike2025].
+
+```{r tabla-argentina}
+tab3 <- viz$tabla_3_indicadores_argentina$filas
+kable(tab3, col.names = c("Indicador", "Valor"),
+      caption = viz$tabla_3_indicadores_argentina$titulo)
+```
+
+## Potencial de la industria en Mendoza
+
+Mendoza presenta ejes de oportunidad cualitativos que conviene profundizar con datos
+provinciales propios: el cicloturismo enoturístico en Luján de Cuyo y Maipú
+(circuitos *bike & wine*), la expansión de ciclovías y movilidad urbana sustentable
+en el Gran Mendoza, y el desarrollo de bicipartes con valor agregado local. Esta
+sección se plantea de forma cualitativa para evitar cifras no verificadas y queda
+abierta a un relevamiento específico.
+
+# Conclusiones
+
+La industria de la bicicleta combina un crecimiento estructural sostenido —impulsado
+por la movilidad sustentable y las e-bikes— con una elevada concentración productiva
+en China y una fuerte exposición a riesgos sistémicos: barreras comerciales,
+fragilidad logística en los *chokepoints* marítimos y dependencia de un insumo
+agrícola estratégico sujeto a riesgo fitosanitario. El modelo de eventos discretos
+del Módulo 3 gana realismo si incorpora el caucho de las cubiertas como insumo
+crítico de costo volátil y si parametriza el costo de importación de componentes en
+función de la volatilidad del flete marítimo. Para Argentina y Mendoza, el nuevo
+marco desregulatorio abre simultáneamente un riesgo (competencia importada) y una
+oportunidad (cicloturismo, movilidad urbana y bicipartes locales).
+
+# Referencias

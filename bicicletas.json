@@ -1,0 +1,202 @@
+{
+  "investigacion_industria_bicicleta": {
+    "metadatos": {
+      "titulo": "Analisis Integrado de Vulnerabilidades en la Industria Global de la Bicicleta y su Cadena de Suministro: Dinamicas Geopoliticas, Crisis de Insumos Elastomericos y Perspectivas para la Republica Argentina y Mendoza (2025/2026)",
+      "autores": "Grupo de Investigacion en Tecnicas y Herramientas Modernas",
+      "formato_compatible": "Distill-RMarkdown / Gemini-AI-Advanced-Context-v2",
+      "proposito": "Revision academica - Catedra Tecnicas y Herramientas Modernas, Ingenieria Industrial (UNCuyo)",
+      "enfoque": "Tercera persona, lenguaje cientifico-academico, validacion cuantitativa, referencias APA",
+      "industria_simulada_modulo3": "Fabricacion y comercializacion de bicicletas (simulacion de eventos discretos en SIMUL8)"
+    },
+
+    "dimension_global": {
+      "balances_mercado_2025_2026": {
+        "valor_mercado_usd_miles_millones_2025": 81.76,
+        "rango_estimaciones_entre_consultoras_usd_miles_millones": [71.1, 126.7],
+        "produccion_volumen_millones_unidades_2025": 108.4,
+        "proyeccion_volumen_millones_unidades_2035": 198.6,
+        "cagr_volumen_porcentaje_2026_2035": 7.3,
+        "region_lider": "Asia-Pacifico",
+        "cuota_asia_pacifico_porcentaje": 34.6,
+        "segmento_tecnologico_dominante": "Convencional",
+        "cuota_convencional_porcentaje": 82.0,
+        "nota_metodologica": "Las estimaciones de valor de mercado varian de forma significativa entre consultoras (Global Market Insights, Expert Market Research, Grand View Research, Precedence Research) debido a diferencias de alcance y segmentacion."
+      },
+      "estructura_comercio_internacional": {
+        "principales_productores_cuota_produccion": {
+          "china_porcentaje": 50.0,
+          "brasil_posicion": "Segundo productor mundial (China lo supera ~10 veces)",
+          "indonesia_porcentaje": 4.7
+        },
+        "principales_exportadores_valor": {
+          "descripcion": "China, Taiwan y Paises Bajos concentran el 50% de las exportaciones mundiales en valor.",
+          "cuota_conjunta_porcentaje": 50.0
+        },
+        "principales_importadores_valor": {
+          "descripcion": "Estados Unidos, Alemania y Paises Bajos concentran el 31% de las importaciones mundiales en valor.",
+          "cuota_conjunta_porcentaje": 31.0
+        }
+      },
+      "barreras_comerciales_y_geopoliticas": {
+        "aranceles_antidumping_union_europea": {
+          "descripcion": "La Comision Europea extendio en enero de 2025, por cinco anios adicionales (hasta ~2030), los derechos antidumping y compensatorios sobre bicicletas electricas originarias de China, vigentes desde 2019.",
+          "derecho_antidumping_rango_porcentaje": [9.9, 70.1],
+          "derecho_compensatorio_rango_porcentaje": [3.9, 17.2],
+          "empleos_ue_protegidos": 12000,
+          "instrumento_legal": "Reglamento de Ejecucion (UE) 2025/120",
+          "impacto_industrial": "Encarecimiento de las e-bikes chinas en el mercado europeo y reconfiguracion del ensamblaje hacia el sudeste asiatico y la propia UE."
+        },
+        "aranceles_estados_unidos": {
+          "arancel_ebikes_y_partes_chinas_porcentaje": 25.0,
+          "arancel_adicional_baterias_2026_porcentaje": 25.0,
+          "impacto": "Incentivo a relocalizar el ensamblaje final dentro de fronteras nacionales para mitigar costos."
+        },
+        "crisis_maritima_chokepoints": {
+          "descripcion": "Los ataques en el Mar Rojo (estrecho de Bab al-Mandab) desde noviembre de 2023 y la tension recurrente en el estrecho de Ormuz comprometen las rutas maritimas que conectan los polos productores asiaticos con los mercados de Occidente, encareciendo el flete de cuadros, componentes y baterias.",
+          "porcentaje_comercio_contenedores_via_suez_normal": 30.0,
+          "caida_trafico_contenedores_suez_2024_porcentaje": 90.0,
+          "incremento_spot_asia_europa_pico_2024_veces": 5.0,
+          "incremento_spot_shanghai_europa_dic23_ene24_porcentaje": 256.0,
+          "rango_pico_flete_feu_usd_2024": [8000, 10000],
+          "dias_extra_ruta_cabo_buena_esperanza": [10, 15],
+          "impacto_inflacion_bienes_core_global_pp_h1_2024": 0.7,
+          "fuente_chokepoint_energetico": "El encarecimiento del crudo asociado a Ormuz eleva costos de combustible y flete a lo largo de toda la cadena."
+        }
+      },
+      "crisis_fitosanitaria_del_caucho": {
+        "relevancia_directa_bicicleta": "Las cubiertas y camaras de bicicleta dependen de caucho natural (Hevea brasiliensis); una restriccion de oferta impacta de forma directa el costo del producto terminado.",
+        "patogeno_riesgo_catastrofico": "Microcyclus ulei (Pseudocercospora ulei), agente del Mal Sudamericano de las Hojas (SALB) del caucho",
+        "patogeno_activo_actual": "Pestalotiopsis (enfermedad de caida de hojas) en el sudeste asiatico",
+        "especie_afectada": "Hevea brasiliensis",
+        "vulnerabilidad_estructural": "La produccion mundial se concentra en monocultivos clonales en el sudeste asiatico, geneticamente homogeneos y altamente vulnerables a una eventual introduccion del SALB.",
+        "indicadores_cuantitativos": {
+          "deficit_oferta_consecutivo_anios_hasta_2025": 5,
+          "deficit_anual_estimado_toneladas": [600000, 800000],
+          "horizonte_deficit_hasta_anio": 2028,
+          "caida_produccion_tailandia_2024_porcentaje_hasta": 10.0,
+          "precio_str20_2025_usd_tonelada": [1650, 2160],
+          "nivel_precios_finales_2024": "Maximo en 13 anios",
+          "kg_caucho_por_vehiculo_referencia_automotriz": 65.7
+        }
+      }
+    },
+
+    "dimension_local_argentina": {
+      "estructura_productiva": {
+        "dependencia_produccion_local": "Solo el 10% de las bicicletas comercializadas en el pais son importadas; el mercado depende fuertemente de la produccion local.",
+        "porcentaje_importado": 10.0,
+        "contenido_componentes_nacionales_gama_baja_porcentaje": 30.0,
+        "camara_sectorial": "CIMBRA (Camara Industrial de la Motocicleta, Bicicleta, Rodados y Afines)",
+        "fabricantes_ebikes_locales": ["EMOV S.A.S. (Brina 2)", "Rodar Electric (La Plata)", "E-zero (Santiago del Estero)"]
+      },
+      "indicadores_mercado_interno": {
+        "posicion_precio_internacional": "Argentina es el segundo pais con bicicletas mas caras en una comparativa de nueve economias de PBI per capita medio-alto.",
+        "precio_mtb_rodado29_ars": {
+          "argentina": 549000,
+          "francia": 261485,
+          "estados_unidos": 244333
+        },
+        "caida_ventas_vs_2023_porcentaje": 30.0,
+        "contexto": "Mercado retraido por recesion; record historico de ventas registrado durante la pandemia de COVID-19."
+      },
+      "desregulacion_y_comercio_exterior": {
+        "medida": "Resolucion 274/2024 (Secretaria de Comercio): derogacion de los reglamentos tecnicos de bicicletas, camaras y cubiertas.",
+        "objetivo": "Reducir costos de certificacion, fomentar la competencia y bajar el precio interno facilitando la importacion.",
+        "tension_sectorial": "Los fabricantes locales (CIMBRA) advierten sobre el riesgo de la apertura y la seguridad del consumidor."
+      },
+      "potencial_mendoza": {
+        "ejes_oportunidad": [
+          "Cicloturismo enoturistico en Lujan de Cuyo y Maipu (circuitos 'bike & wine')",
+          "Movilidad urbana sustentable y expansion de ciclovias en el Gran Mendoza",
+          "Ensamblaje y desarrollo de bicipartes con valor agregado local"
+        ],
+        "observacion": "Seccion a profundizar con datos provinciales especificos (relevamiento propio o fuentes locales). Los ejes se plantean de forma cualitativa para evitar cifras no verificadas."
+      }
+    },
+
+    "datos_para_visualizacion": {
+      "figura_1_produccion_global_por_pais": {
+        "tipo_grafico": "barras (ggplot2 geom_col)",
+        "titulo": "Cuota estimada de produccion mundial de bicicletas por pais (2025)",
+        "datos": [
+          {"pais": "China", "cuota_porcentaje": 61.0},
+          {"pais": "Brasil", "cuota_porcentaje": 6.0},
+          {"pais": "Indonesia", "cuota_porcentaje": 4.7},
+          {"pais": "Resto del mundo", "cuota_porcentaje": 28.3}
+        ],
+        "fuente": "indexbox2026"
+      },
+      "figura_2_fletes_maritimos": {
+        "tipo_grafico": "lineas (ggplot2 geom_line)",
+        "titulo": "Evolucion del flete spot Asia-Europa por contenedor (USD/FEU, valores ilustrativos)",
+        "datos": [
+          {"periodo": "Nov 2023", "usd_feu": 1500},
+          {"periodo": "Ene 2024", "usd_feu": 5300},
+          {"periodo": "Jul 2024", "usd_feu": 9000},
+          {"periodo": "Ene 2025", "usd_feu": 3500},
+          {"periodo": "Oct 2025", "usd_feu": 2000}
+        ],
+        "fuente": "unctad2024, freightos2025"
+      },
+      "figura_3_precio_mtb_comparado": {
+        "tipo_grafico": "barras (ggplot2 geom_col)",
+        "titulo": "Precio de una Mountain Bike rodado 29 por pais (en ARS, 2024)",
+        "datos": [
+          {"pais": "Argentina", "precio_ars": 549000},
+          {"pais": "Estados Unidos", "precio_ars": 244333},
+          {"pais": "Francia", "precio_ars": 261485}
+        ],
+        "fuente": "ambito2024"
+      },
+      "tabla_1_balance_mercado_global": {
+        "titulo": "Indicadores del mercado global de la bicicleta (2025)",
+        "filas": [
+          {"indicador": "Valor de mercado (USD miles de millones)", "valor": "71.1 - 126.7 (segun consultora)"},
+          {"indicador": "Volumen (millones de unidades)", "valor": "108.4"},
+          {"indicador": "CAGR 2026-2035 (%)", "valor": "7.3"},
+          {"indicador": "Cuota produccion China (%)", "valor": "~61"},
+          {"indicador": "Region lider", "valor": "Asia-Pacifico (34.6%)"}
+        ]
+      },
+      "tabla_2_barreras_comerciales": {
+        "titulo": "Barreras comerciales y disrupciones logisticas (2024-2026)",
+        "filas": [
+          {"barrera": "Antidumping UE a e-bikes chinas (%)", "valor": "9.9 - 70.1"},
+          {"barrera": "Derecho compensatorio UE (%)", "valor": "3.9 - 17.2"},
+          {"barrera": "Arancel EE.UU. a e-bikes/partes chinas (%)", "valor": "25"},
+          {"barrera": "Caida trafico contenedores via Suez 2024 (%)", "valor": "90"},
+          {"barrera": "Pico flete Asia-Europa 2024 (USD/FEU, aprox.)", "valor": "~8.000 - 10.000"}
+        ]
+      },
+      "tabla_3_indicadores_argentina": {
+        "titulo": "Indicadores de la industria de la bicicleta en Argentina (2024)",
+        "filas": [
+          {"indicador": "Bicicletas importadas sobre total (%)", "valor": "10"},
+          {"indicador": "Contenido nacional en gama baja (%)", "valor": "~30"},
+          {"indicador": "Caida de ventas vs 2023 (%)", "valor": "30"},
+          {"indicador": "Posicion en precio (9 paises)", "valor": "2do mas caro"}
+        ]
+      }
+    },
+
+    "referencias_apa": [
+      "Global Market Insights. (2026). Bicycle market size, share, trends. Industry report 2026-2035. https://www.gminsights.com/industry-analysis/bicycle-market",
+      "Expert Market Research. (2025). Bicycle market size, share, growth by 2035. https://www.expertmarketresearch.com/reports/bicycle-market",
+      "Grand View Research. (2025). Bicycle market size, share & trends. Industry report, 2033. https://www.grandviewresearch.com/industry-analysis/bicycle-market",
+      "IndexBox. (2026). Global bicycle market report 2025: Prices, size, forecast, and companies. https://www.indexbox.io/",
+      "European Commission. (2025). Commission Implementing Regulation (EU) 2025/120: Anti-dumping duty on imports of electric bicycles from China. https://eur-lex.europa.eu/",
+      "United Nations Conference on Trade and Development. (2024). Unprecedented shipping disruptions raise risk to global trade. UNCTAD. https://unctad.org/news/unprecedented-shipping-disruptions-raise-risk-global-trade-unctad-warns",
+      "J.P. Morgan. (2024). The impacts of the Red Sea shipping crisis. https://www.jpmorgan.com/insights/global-research/supply-chain/red-sea-shipping",
+      "Everstream Analytics. (2024). Natural rubber shortages intensify. https://www.everstream.ai/risk-centers/natural-rubber-shortages-intensify/",
+      "Tang, A., & Jadhav, R. (2025, January). Global rubber shortfall looms in 2025 on stagnant output, association says. Reuters. https://finance.yahoo.com/news/global-rubber-shortfall-looms-2025-052410800.html",
+      "Ambito. (2024, September 12). Regimen antidumping: el Gobierno elimina trabas burocraticas para la importacion de bicicletas. https://www.ambito.com/",
+      "Interbike. (2025). Estadisticas de bicicletas en Argentina. https://interbike.com.ar/estadisticas-bicicletas-argentina/"
+    ],
+
+    "conclusiones": {
+      "sintesis": "La industria de la bicicleta combina un crecimiento estructural sostenido (impulsado por la movilidad sustentable y las e-bikes) con una elevada concentracion productiva en China y una fuerte exposicion a riesgos sistemicos: barreras comerciales (antidumping UE, aranceles EE.UU.), fragilidad logistica en chokepoints maritimos y dependencia de un insumo agricola estrategico (caucho natural) sujeto a riesgo fitosanitario.",
+      "implicancia_simulacion": "El modelo de eventos discretos del Modulo 3 (planta de bicicletas en SIMUL8) gana realismo si incorpora el caucho de las cubiertas como insumo critico de costo y disponibilidad volatil, y si parametriza el costo de importacion de componentes en funcion de la volatilidad del flete maritimo.",
+      "oportunidad_local": "Para Argentina y Mendoza, la combinacion de alta dependencia de produccion local, precios internos elevados y un nuevo marco desregulatorio abre una ventana tanto de riesgo (competencia importada) como de oportunidad (nichos de cicloturismo, movilidad urbana y bicipartes con valor agregado)."
+    }
+  }
+}
